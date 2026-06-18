@@ -15,7 +15,7 @@ graph TD
     C -->|Запись JSON| D[(sim_config.json)]
     C -->|exec| E[run_sim.py]
     D --> E
-    E -->|JSON Результат| F(STATE C: Отчет Билли Бина)
+    E -->|JSON Результат| F(STATE C: Отчет агента)
     F -->|Plain Text| A
     
     style B fill:#1e1e1e,stroke:#f97316,stroke-width:2px,color:#fff
