@@ -1,0 +1,27 @@
+{
+  "_comment": "Reference only — agent writes sim_config.json per run.",
+  "trip_window_days": {
+    "iterations": 100000,
+    "variables": {
+      "days_until_ok_to_travel": { "min": 2, "mode": 9, "max": 21, "confidence": 0.7 }
+    },
+    "risks": [
+      { "id": "immediate_job_start", "prob": 0.3, "impact": 14 },
+      { "id": "rejection_new_cycle", "prob": 0.5, "impact": 7 }
+    ],
+    "formula": "days_until_ok_to_travel + immediate_job_start + rejection_new_cycle",
+    "success_condition": "result <= 7",
+    "tail": { "threshold": 14, "op": ">", "label": "window beyond 14 days" }
+  },
+  "loan_rate": {
+    "iterations": 100000,
+    "variables": {
+      "approved_rate_pct": { "min": 12, "mode": 16, "max": 22, "confidence": 0.75 }
+    },
+    "risks": [
+      { "id": "no_approval", "prob": 0.25, "impact": 100 }
+    ],
+    "formula": "approved_rate_pct + no_approval",
+    "success_condition": "result <= 15"
+  }
+}
